@@ -11,7 +11,7 @@ const Loader = () => {
   return (
     <div className={css.loader}>
       <BeatLoader
-        color="#483d8b"
+        color="#b29eff"
         loading={true}
         cssOverride={override}
         size={25}
