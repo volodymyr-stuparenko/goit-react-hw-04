@@ -2,7 +2,7 @@ import css from './ImageCard.module.css';
 
 const ImageCard = ({ image }) => {
   return (
-    <div className={css.imgWrapper} style={{ backgroundColor: image.color }}>
+    <div className={css.imgWrapper}>
       <img
         className={css.img}
         src={image.small}

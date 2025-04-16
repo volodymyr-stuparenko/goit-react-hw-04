@@ -1,4 +1,3 @@
-// import { Formik, Form, Field } from 'formik';
 import css from './SearchBar.module.css';
 
 const SearchBar = ({ onSubmit, toast }) => {

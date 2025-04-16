@@ -4,7 +4,7 @@
   align-items: center;
   gap: 10px;
   background-color: rgb(4, 4, 77);
-  height: 100px;
+  height: 75px;
 
   form {
     display: flex;
