@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import css from './App.module.css';
-import { searchImages, fakeSearch } from '../../services/MyApi';
+import { searchImages } from '../../services/MyApi';
 import SearchBar from '../SeacrhBar/SearchBar';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageGallery from '../ImageGallery/ImageGallery';
