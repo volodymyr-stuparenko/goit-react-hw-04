@@ -17,14 +17,14 @@ const customStyles = {
 };
 ReactModal.setAppElement(document.getElementById('root'));
 
-const ImageModal = ({ isOpen, onRequestClose, currentPage }) => {
+const ImageModal = ({ isOpen, onRequestClose, currentImage }) => {
   return (
     <ReactModal
       style={customStyles}
       isOpen={isOpen}
       onRequestClose={onRequestClose}
     >
-      {currentPage && <img src={currentPage} alt="Selected" />}
+      {currentImage && <img src={currentImage} alt="Selected" />}
     </ReactModal>
   );
 };

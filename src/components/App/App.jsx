@@ -17,6 +17,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(null);
 
   function openModal() {
     setIsOpen(true);
@@ -26,7 +27,7 @@ function App() {
   }
 
   const handleClick = (imgUrl) => {
-    setCurrentPage(imgUrl);
+    setCurrentImage(imgUrl);
     openModal();
   };
 
@@ -97,7 +98,7 @@ function App() {
       <ImageModal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        currentPage={currentPage}
+        currentImage={currentImage}
       />
       <Toaster />
     </div>
