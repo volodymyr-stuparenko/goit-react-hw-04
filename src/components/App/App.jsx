@@ -16,7 +16,19 @@ function App() {
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [modalUrl, setModalUrl] = useState('');
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  const handleClick = (imgUrl) => {
+    setCurrentPage(imgUrl);
+    openModal();
+  };
 
   const handleSearch = async (query, page) => {
     setCurrentPage(page);
@@ -75,16 +87,18 @@ function App() {
         toast={toast}
       />
       {images.length > 0 && !error && (
-        <ImageGallery images={images} setModal={setModalUrl} />
+        <ImageGallery images={images} handleClick={handleClick} />
       )}
       {loading && <Loader />}
       {error && <ErrorMessage toast={toast} />}
       {currentPage < totalPages && !error && !loading && (
         <LoadMoreBtn loadMore={() => handleSearch(query, currentPage + 1)} />
       )}
-      {modalUrl !== '' && (
-        <ImageModal modalUrl={modalUrl} setModal={setModalUrl} />
-      )}
+      <ImageModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        currentPage={currentPage}
+      />
       <Toaster />
     </div>
   );

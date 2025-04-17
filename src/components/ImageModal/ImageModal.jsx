@@ -1,30 +1,31 @@
-import { useEffect } from 'react';
-import css from './ImageModal.module.css';
+import ReactModal from 'react-modal';
 
-const ImageModal = ({ modalUrl, setModal }) => {
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        setModal('');
-      }
-    };
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    border: 'none',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    background: 'none',
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
+};
+ReactModal.setAppElement(document.getElementById('root'));
 
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  });
-
+const ImageModal = ({ isOpen, onRequestClose, currentPage }) => {
   return (
-    <div
-      className={css.modal}
-      onClick={(e) => {
-        setModal('');
-      }}
+    <ReactModal
+      style={customStyles}
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
     >
-      <img src={modalUrl} />
-    </div>
+      {currentPage && <img src={currentPage} alt="Selected" />}
+    </ReactModal>
   );
 };
 
